@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 # Install git, curl, node, ionic, yarn
 RUN apt-get update &&  \
-    apt-get install -y wget git curl && \
+    apt-get install -y wget git unzip curl && \
     curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get update &&  \
     apt-get install -y nodejs && \
