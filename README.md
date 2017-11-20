@@ -29,3 +29,8 @@ docker run -it marcomaisel/ionic bash
 ```Dockerfile
 FROM marcomaisel/ionic:latest
 ```
+
+-----
+
+### Inspired by
+https://github.com/marcoturi/ionic-docker
