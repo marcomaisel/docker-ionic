@@ -50,6 +50,13 @@ RUN wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip && \
     unzip -d /opt/gradle gradle-3.4.1-bin.zip && \
     export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
 
+# Install docker-gc (garbage collector)
+RUN apt-get update
+RUN apt-get install git devscripts debhelper build-essential dh-make -y
+RUN git clone https://github.com/spotify/docker-gc.git /root/docker-gc
+RUN cd /root/docker-gc && debuild -us -uc -b
+RUN dpkg -i /root/docker-gc_0.1.0_all.deb
+
 WORKDIR Sources
 EXPOSE 8100 35729
 CMD ["ionic", "serve"]
