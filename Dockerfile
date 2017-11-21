@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 # Install git, curl, node, ionic, yarn
 RUN apt-get update &&  \
-    apt-get install -y wget git unzip curl ruby ruby-dev && \
+    apt-get install -y wget git unzip curl ruby ruby-dev build-essential && \
     curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get update &&  \
     apt-get install -y nodejs && \
@@ -14,6 +14,7 @@ RUN apt-get update &&  \
     npm cache clear --force && \
 
     # Install fastlane
+    gem install bundler && \
     gem install fastlane -NV && \
 
     # install python-software-properties (to use add-apt-repository)
