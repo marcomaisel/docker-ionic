@@ -36,5 +36,5 @@ FROM marcomaisel/ionic:latest
 ### Inspired by
 https://github.com/marcoturi/ionic-docker
 
-## Docker Garbage Collection by
+### Docker Garbage Collection by
 https://github.com/spotify/docker-gc
