@@ -7,6 +7,7 @@ An image to be used with Gitlab CI including
 - Java
 - Android SDK
 - Gradle
+- Docker Garbage Collection to remove Containers that exited more than an hour ago
 
 ----
 
@@ -34,3 +35,6 @@ FROM marcomaisel/ionic:latest
 
 ### Inspired by
 https://github.com/marcoturi/ionic-docker
+
+## Docker Garbage Collection by
+https://github.com/spotify/docker-gc
