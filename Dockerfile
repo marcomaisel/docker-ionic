@@ -11,7 +11,7 @@ RUN apt-get update &&  \
     apt-get install -y nodejs && \
     npm install -g npm@"5.5.1" && \
     npm install -g cordova@"7.1.0" ionic@"3.18.0" yarn@"1.3.2" && \
-    npm cache clear --force && \
+    npm cache clear --force
     
 # Install Docker for Garbage Collection
 RUN apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y && \
