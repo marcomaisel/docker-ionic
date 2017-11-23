@@ -12,9 +12,16 @@ RUN apt-get update &&  \
     npm install -g npm@"5.5.1" && \
     npm install -g cordova@"7.1.0" ionic@"3.18.0" yarn@"1.3.2" && \
     npm cache clear --force && \
+    
+# Install Docker for Garbage Collection
+RUN apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y && \
+    curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | apt-key add - && \
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" && \
+    apt-get update && \
+    apt-get install docker-ce -y
 
     # Install fastlane
-    gem install bundler && \
+RUN gem install bundler && \
     gem install fastlane -NV && \
 
     # install python-software-properties (to use add-apt-repository)
