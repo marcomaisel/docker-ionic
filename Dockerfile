@@ -1,6 +1,7 @@
 FROM debian:jessie
 
 # Set the locale
+RUN apt-get clean && apt-get update
 RUN apt-get install locales
 RUN locale-gen en_US.UTF-8  
 ENV LANG en_US.UTF-8  
