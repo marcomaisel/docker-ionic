@@ -83,6 +83,10 @@ RUN git clone https://github.com/spotify/docker-gc.git /root/docker-gc
 RUN cd /root/docker-gc && debuild -us -uc -b
 RUN dpkg -i /root/docker-gc_0.1.0_all.deb
 
+# Install docker-compose
+RUN curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+RUN chmod +x /usr/local/bin/docker-compose
+
 WORKDIR Sources
 EXPOSE 8100 35729
 CMD ["ionic", "serve"]
