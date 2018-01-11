@@ -6,19 +6,13 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Set the locale
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y locales
 
-RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+RUN sed -i -e 's/
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8
 
 ENV LANG en_US.UTF-8 
-#RUN apt-get update -qq && apt-get install -y locales -qq && 
-#RUN apt-get install locales
-#RUN locale-gen en_US.UTF-8  
-#ENV LANG en_US.UTF-8  
-#ENV LANGUAGE en_US:en  
-#ENV LC_ALL en_US.UTF-8  
 
-# Install git, curl, node, ionic, yarn
+# Install git, curl, node, ionic, yarn, Chrome
 RUN apt-get update &&  \
     apt-get install -y wget git unzip curl ruby ruby-dev build-essential && \
     curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
@@ -26,7 +20,12 @@ RUN apt-get update &&  \
     apt-get install -y nodejs && \
     npm install -g npm@"5.5.1" && \
     npm install -g cordova@"7.1.0" ionic@"3.18.0" yarn@"1.3.2" && \
-    npm cache clear --force
+    npm cache clear --force && \
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg --unpack google-chrome-stable_current_amd64.deb && \
+    apt-get install -f -y && \
+    apt-get clean && \
+    rm google-chrome-stable_current_amd64.deb
     
 # Install Docker for Garbage Collection
 RUN apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y && \
