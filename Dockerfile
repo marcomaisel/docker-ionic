@@ -15,7 +15,8 @@ ENV LANG en_US.UTF-8
 # Install git, curl, node, ionic, yarn, Chrome
 RUN apt-get update &&  \
     apt-get install -y wget git unzip curl ruby ruby-dev build-essential && \
-    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
+    
     apt-get update &&  \
     apt-get install -y nodejs && \
     npm install -g npm@"5.6.0" && \
