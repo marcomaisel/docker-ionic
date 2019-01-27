@@ -15,11 +15,10 @@ ENV LANG en_US.UTF-8
 # Install git, curl, node, ionic, yarn, Chrome
 RUN apt-get update &&  \
     apt-get install -y wget git unzip curl ruby ruby-dev build-essential && \
-    curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     
     apt-get update &&  \
     apt-get install -y nodejs && \
-    npm install -g npm@"5.6.0" && \
     npm install -g cordova@"8.0.0" ionic@"3.19.0" yarn@"1.3.2" && \
     npm cache clear --force && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
@@ -71,10 +70,10 @@ RUN yes Y | ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;26.0.2" "platforms
 RUN cordova telemetry off
 
 # Install Gradle
-RUN wget https://services.gradle.org/distributions/gradle-4.3.1-bin.zip && \
+RUN wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip && \
     mkdir /opt/gradle && \
-    unzip -d /opt/gradle gradle-4.3.1-bin.zip && \
-    export PATH=$PATH:/opt/gradle/gradle-4.3.1/bin
+    unzip -d /opt/gradle gradle-4.10.3-bin.zip && \
+    export PATH=$PATH:/opt/gradle/gradle-4.10.3/bin
 
 # Install docker-gc (garbage collector)
 RUN apt-get update
