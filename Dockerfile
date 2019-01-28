@@ -35,8 +35,7 @@ RUN apt-get install apt-transport-https ca-certificates curl gnupg2 software-pro
     apt-get install docker-ce -y
 
     # Install fastlane
-RUN gem install rubygems-update -v '<3' && update_rubygems
-    gem install bundler && \
+RUN gem install bundler -v '1.16.1' && \
     gem install fastlane -NV && \
 
     # install python-software-properties (to use add-apt-repository)
