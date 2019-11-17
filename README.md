@@ -1,7 +1,7 @@
 # docker-ionic
 An image to be used with Gitlab CI including 
 
-- Ionic 3
+- Ionic 5
 - Cordova
 - node & npm
 - Java
