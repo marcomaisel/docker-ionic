@@ -18,7 +18,7 @@ RUN apt-get update &&  \
     curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get update &&  \
     apt-get install -y nodejs && \
-    npm install -g cordova@"8.1.0" ionic@"5.4.6" yarn@"1.19.1" && \
+    npm install -g cordova@"9.0.0" ionic@"5.4.6" yarn@"1.19.1" && \
     npm cache clear --force && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg --unpack google-chrome-stable_current_amd64.deb && \
