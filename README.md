@@ -1,10 +1,10 @@
 # docker-ionic
 An image to be used with Gitlab CI including 
 
-- Ionic 4
-- Cordova
+- Ionic CLI 5
+- Cordova 9
 - node & npm
-- Java
+- Java 8 (OpenJDK)
 - Android SDK
 - Gradle
 - Docker Garbage Collection to remove Containers that exited more than an hour ago
